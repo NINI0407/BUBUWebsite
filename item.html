@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width:device-width, initial-scale:1.0">
+        <style>
+            h2{background-color:rgba(90, 68, 56, 0.6);}
+            body{background-color:rgba(90, 68, 56, 0.3);}
+            .back{
+                border:none;
+                background-color:rgba(90, 68, 56, 0.6);
+                padding:10px;
+                position:center;
+            }
+
+            .credit-card-input { display: none; }  //把填入卡號的那一欄預設成不顯示之後用script讓他在適當時機顯示
+        </style>
+        <link rel="icon" type="image/x-image" href="icon.jpg">
+        <title>BUBU SHOP</title>
+
+        <script>//按下信用卡付款時顯示可以輸入卡號的地方
+            window.onload = function() {
+                var way = document.getElementById('way');
+                var way2 = document.getElementById('way2');
+                var way3 = document.getElementById('way3');
+                var creditCardInput = document.getElementById('credit-card-input');
+    
+                way2.addEventListener('click', function() {
+                    creditCardInput.style.display = 'block';
+                });
+                way.addEventListener('click', function() {
+                    creditCardInput.style.display = 'none';
+                });
+                way3.addEventListener('click', function() {
+                    creditCardInput.style.display = 'none';
+                });
+            }
+        </script>
+
+
+    </head>
+    <body>  
+        <h2>請填寫基本資料</h2>
+        <form>
+            <label for="name">姓名:</label>
+            <input type="text" id="name" name="n" value="name">
+            <br><br>
+
+            <label for="tel">電話:</label>
+            <input type="text" id="tel" name="t" value="09xxxxxxxx">
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="e" value="xxxx@gmail.com">
+            <br><br>
+
+            <label>付款方式:</label>
+            <input type="radio" id="way" name="w" >
+            <label for="way">貨到付款</label>
+            <input type="radio" id="way2" name="w" >
+            <label for="way2">信用卡付款</label>
+            <input type="radio" id="way3" name="w" >
+            <label for="way3">LINE PAY</label>
+            <br><br>
+
+            <div id="credit-card-input" class="credit-card-input">
+                <label for="creditCardNumber">信用卡卡號:</label>
+                <input type="text" id="creditCardNumber" name="ccn">
+                <label for="safenum">安全碼:</label>
+                <input type="text" id="safenum" name="sn">
+                <label for="date">到期日:</label>
+                <input type="text" id="date" name="d">
+                <br><br>
+            </div>
+
+            <label for="address">地址:</label>
+            <input type="text" id="address" name="a" value="address">
+            <br><br>
+            
+            
+
+        </form>
+        <button type="button" class="back" onclick="window.location.href='page3.html'">確定送出</button>
+    </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/x-image" href="icon.jpg">
+        <title>BUBU SHOP</title>
+        <style>
+            *{box-sizing:border-box;}
+            body{background-color:rgba(90, 68, 56, 0.3);}
+            h1{background-color:rgba(90, 68, 56, 0.6);}
+            .container {
+                position: relative;
+                width: 400px;
+                height: 300px;
+            }
+        
+            .image1 {
+                position: absolute;
+                z-index: 1;
+                left: 0px;
+                top: 0px;
+            }
+        
+            .image2 {
+                position: absolute;
+                z-index: 2;
+                left: 200px;
+                top:80px;
+            }
+
+            .image{
+                display: none;
+            }
+
+            .button{
+                width:100px;
+                height: 100px;
+                display: inline;
+            }
+            .back{
+                border:none;
+                background-color:rgba(90, 68, 56, 0.6);
+                padding:10px;
+                position:fixed;
+            }
+            form{
+                display: inline-block;
+            }
+        </style>
+        <script><!--自己上傳-->
+            function previewImage() {
+              const fileInput = document.getElementById("photoUpload");
+              const imagePreview = document.getElementById("pic6");
+              
+              // 確保用戶選擇了一張圖片
+              if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+          
+                reader.onload = function (e) {
+                  // 創建一個 <img> 元素來顯示圖片
+                  const image = document.createElement("img");
+                  image.src = e.target.result;
+                  image.width = 100; // 可以設定圖片寬度
+                  imagePreview.innerHTML = ""; // 清空預覽容器
+                  imagePreview.appendChild(image); // 把圖片添加到預覽容器中
+                };
+          
+                // 讀取上傳的圖片並轉換成DataURL格式
+                reader.readAsDataURL(fileInput.files[0]);
+              }
+            }
+          
+            // 監聽文件上傳欄位的變化
+            document.getElementById("photoUpload").addEventListener("change", previewImage);
+          </script>
+          
+    </head>
+    <body>
+        <button class="back" onclick="window.location.href='page1.html'">首頁</button>
+        <button class="back" style="left:60px" onclick="window.location.href='page3.html'">最後頁</button>
+        <button class="back" style="left:125px" onclick="window.location.href='item.html'">下一步</button>
+        <center>
+        <div class="container">
+            <img id="t1" class="image1 image" src="yellow.jpg" width="400px">
+            <img id="t2" class="image1 image" src="purple.jpg" width="400px">
+            <img id="t3" class="image1 image" src="blue.jpg" width="400px">
+            <img id="t4" class="image1 image" src="pink.jpg" width="400px">
+
+            <img id="pic1" src="bubu1.jpg" class="image2 image" width="100px">
+            <img id="pic2" src="bubu2.jpg" class="image2 image" width="100px">
+            <img id="pic3" src="bubu3.jpg" class="image2 image" width="100px">
+            <img id="pic4" src="bubu4.jpg" class="image2 image" width="100px">
+            <img id="pic5" src="bubu5.jpg" class="image2 image" width="100px">
+            <div id="pic6"><!-- 用戶上傳的照片將顯示在這裡 --></div>
+        </div>
+        <br><br><br><br><br>
+        <h1>Choose Color:</h1>
+        <div class="button"><!--color-->
+            <button type="button" onclick="h(1)" > <img src="yellow.jpg" width="100px"> </button>
+            <button type="button" onclick="h(2)" > <img src="purple.jpg" width="100px"> </button>
+            <button type="button" onclick="h(3)" > <img src="blue.jpg" width="100px"> </button>
+            <button type="button" onclick="h(4)" > <img src="pink.jpg" width="100px"> </button>
+        </div>
+        <br>
+        <h1>Choose Picture:</h1>
+        <div class="button"><!--pic-->
+            <button type="button" onclick="f(1)" > <img src="bubu1.jpg" width="100px" height="100"> </button>
+            <button type="button" onclick="f(2)" > <img src="bubu2.jpg" width="100px" height="100"> </button>
+            <button type="button" onclick="f(3)" > <img src="bubu3.jpg" width="100px" height="100"> </button>
+            <button type="button" onclick="f(4)" > <img src="bubu4.jpg" width="100px" height="100"> </button>
+            <button type="button" onclick="f(5)" > <img src="bubu5.jpg" width="100px" height="100"> </button>
+            <br><br>
+            <form method="post" enctype="multipart/form-data">
+                <label for="photoUpload"><span>自行上傳照片：</span></label>
+                <input type="file" id="photoUpload" name="photo" accept="image/*">
+            </form>
+            <button type="button" onclick="previewImage(), f(6)">上傳</button>
+        </div>
+        </center>
+        <script>
+            function f(op) {
+                if(op==1)
+                {
+                    var image = document.getElementById("pic1");
+                    document.getElementById("pic2").style.display="none";
+                    document.getElementById("pic3").style.display="none";
+                    document.getElementById("pic4").style.display="none";
+                    document.getElementById("pic5").style.display="none";
+                    document.getElementById("pic6").style.display="none";
+                }
+                else if(op==2)
+                {
+                    var image = document.getElementById("pic2");
+                    document.getElementById("pic1").style.display="none";
+                    document.getElementById("pic3").style.display="none";
+                    document.getElementById("pic4").style.display="none";
+                    document.getElementById("pic5").style.display="none";
+                    document.getElementById("pic6").style.display="none";
+                }
+                else if(op==3)
+                {
+                    var image = document.getElementById("pic3");
+                    document.getElementById("pic1").style.display="none";
+                    document.getElementById("pic2").style.display="none";
+                    document.getElementById("pic4").style.display="none";
+                    document.getElementById("pic5").style.display="none";
+                    document.getElementById("pic6").style.display="none";
+                }
+                else if(op==4)
+                {
+                    var image = document.getElementById("pic4");
+                    document.getElementById("pic1").style.display="none";
+                    document.getElementById("pic2").style.display="none";
+                    document.getElementById("pic3").style.display="none";
+                    document.getElementById("pic5").style.display="none";
+                    document.getElementById("pic6").style.display="none";
+                }
+                else if(op==5)
+                {
+                    var image = document.getElementById("pic5");
+                    document.getElementById("pic1").style.display="none";
+                    document.getElementById("pic2").style.display="none";
+                    document.getElementById("pic3").style.display="none";
+                    document.getElementById("pic4").style.display="none";
+                    document.getElementById("pic6").style.display="none";
+                }
+                else if(op==6)
+                {
+                    var image = document.getElementById("pic6");
+                    document.getElementById("pic1").style.display="none";
+                    document.getElementById("pic2").style.display="none";
+                    document.getElementById("pic3").style.display="none";
+                    document.getElementById("pic4").style.display="none";
+                    document.getElementById("pic5").style.display="none";
+                }
+                image.style.display="block";
+                image.className="image2";
+            }
+            function h(c){
+                if(c==1)
+                {
+                    var tshirt = document.getElementById("t1");
+                    document.getElementById("t2").style.display="none";
+                    document.getElementById("t3").style.display="none";
+                    document.getElementById("t4").style.display="none";
+                }
+                else if(c==2)
+                {
+                    var tshirt = document.getElementById("t2");
+                    document.getElementById("t1").style.display="none";
+                    document.getElementById("t3").style.display="none";
+                    document.getElementById("t4").style.display="none";
+                }
+                else if(c==3)
+                {
+                    var tshirt = document.getElementById("t3");
+                    document.getElementById("t1").style.display="none";
+                    document.getElementById("t2").style.display="none";
+                    document.getElementById("t4").style.display="none";
+                }
+                else if(c==4)
+                {
+                    var tshirt = document.getElementById("t4");
+                    document.getElementById("t1").style.display="none";
+                    document.getElementById("t2").style.display="none";
+                    document.getElementById("t3").style.display="none";
+                }
+                tshirt.style.display="block";
+                image.className="image1";
+            }
+        </script>
+    </body>
+</html>
